@@ -1,0 +1,50 @@
+ALGORITHM dot_product(t1, t2: array_name : ARRAY_OF FLOAT[3], var ps)
+VAR
+    ps: FLOAT:=0;
+    i, j: INTEGER;
+BEGIN
+    FOR i FROM 0 TO t1.lngth-1  DO
+        ps:= ps + t1[i]* t2[j]
+    END_FOR
+END
+
+ALGORITHM verify
+VAR
+    n,i : INTEGER
+    ps: FLOAT
+    v1, v2: array_of FLOAT[3]
+BEGIN
+    
+    write("Enter the number of pairs vectors")
+    read(n)
+    FOR i FROM 0 TO n  DO
+        write("enter the first vector")
+        read(v1[i])
+
+    END_FOR
+FOR i FROM 0 TO n  DO
+    write("enter the second vector")
+read(v2[i])
+END_FOR
+
+ps:= dot_product(v1, v2)
+IF (ps:=0) THEN
+    write("les vecteurs v1 et v2 sont ortoghnaux")
+    else 
+    write ("les vecteurs v1 et v2 ne sont pas ortoghnaux")
+END_IF
+
+END
+
+
+FUNCTIO dot_product(t1, t2: Array_of FLOAT[3]) : FLOAT
+VAR
+    ps: FLOAT:=0;
+    i: INTEGER
+BEGIN
+    FOR i FROM 0 TO t1.length-1  DO
+        ps:= ps + t1[i] + t2[i]
+
+    END_FOR
+    return ps;
+END
